@@ -4,6 +4,7 @@ from sklearn.datasets import fetch_mldata
 from sklearn import cross_validation
 from sklearn import preprocessing
 from sklearn.svm import LinearSVC, SVC
+from  sklearn.ensemble import GradientBoostingClassifier
 import numpy as np
 
 mnist = fetch_mldata('MNIST original')
@@ -28,4 +29,9 @@ print "linear svm correct:%d total:%d accuracy:%.4f" %(y_test[predicted == y_tes
 svm = SVC(kernel = 'poly', degree= 2)
 svm.fit(X_train, y_train)
 predicted = svm.predict(X_test)
+print "svm: poly kernel correct:%d total:%d accuracy:%.4f" %(y_test[predicted == y_test].shape[0], y_test.shape[0], y_test[predicted == y_test].shape[0] * 1.0 / y_test.shape[0])
+
+gbdt = GradientBoostingClassifier()
+gbdt.fit(X_train, y_train)
+predicted = gbdt.predict(X_test)
 print "svm: poly kernel correct:%d total:%d accuracy:%.4f" %(y_test[predicted == y_test].shape[0], y_test.shape[0], y_test[predicted == y_test].shape[0] * 1.0 / y_test.shape[0])

@@ -6,3 +6,5 @@ linear svm correct:722 total:800 accuracy:0.9025
 
 svm: poly kernel correct:720 total:800 accuracy:0.9000 
 
+gbdt: correct:723 total:800 accuracy:0.9038
+
